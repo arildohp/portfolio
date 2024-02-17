@@ -1,9 +1,19 @@
 import styled from 'styled-components'
 
-const Botao = styled.button`
-  background-color: red;
+type BotaoProps = {
+  principal: boolean
+}
+
+const Botao = styled.button<BotaoProps>`
+  background-color: ${(props) => (props.principal ? 'green' : 'blue')};
 `
 function Teste() {
-  return <Botao>Clique aqui</Botao>
+  return (
+    <>
+      <Botao principal> Clique aqui</Botao>
+      <Botao principal={false}> Cancelar</Botao>
+    </>
+  )
 }
+
 export default Teste
